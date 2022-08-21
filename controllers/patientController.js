@@ -62,4 +62,16 @@ router.get("/:id",(req, res)=>{
                 "show.ejs", {appt: appt});
         })
 });
+
+// CREATE PAGE FOR NEW/ EDIT/ DELETE OPTIONS
+router.post("/",(req, res)=>{
+    Appt.create(req.body,(error,createAppt) =>{
+        if(error){
+            console.log('error', error);
+			res.send(error);
+        }else{
+            res.redirect('/patient');
+        }
+    })
+})
 module.exports = router

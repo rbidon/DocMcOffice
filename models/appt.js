@@ -8,10 +8,10 @@ const apptSchema = new mongoose.Schema({
     docName: {type: String, required:true},
     time: {type: String, required: true},
     date: {type: String, required: true, },
-    reason: {type: String, required: true}, 
-    firstAppt:{type: Boolean, required: true}
+    reason: {type: String, required: true}
+    // firstAppt:{type: Boolean, required: true}
   },
-  {timeStamp:true}
+  {timestamp:true}
   )
   
   // CREATE MODEL for Appointment

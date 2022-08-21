@@ -1,0 +1,36 @@
+<%-include("./partials/header.ejs")  %> 
+<div class="container rounded shadow-md showContainer bg-zinc-200">
+    <h1>New Appointment Card Form</h1>
+<form action="/patient" method="POST" class="form showForm flex justify-center flex-col">
+    
+    <label for="firstName">First Name</label>
+    <input type="text"class="form-input" id="firstName" name="firstName"/>
+
+    <label for="lastName">Last Name</label>
+    <input type="text" class="form-input" id="lastName" name="lastName" />
+
+    <label for="lastName">Doctor Name</label>
+    <select type="text"class="form-select" id="docName" name="docName">
+        <option value="Dr.Rousse Bidon">
+            Rousse Bidon
+        </option>
+        <option value="Dr.Jack Bahari">
+            Jack Bahari
+        </option>
+        <option value="Dr. Nancy Muller">
+            Nancy Muller
+        </option>
+    </select>
+
+    <label  for="time">Time</label>
+    <input type="time"class="form-input" id="time" name="time"/>
+
+    <label for="date">Date</label>
+    <input type="date"class="form-input" id="date" name="date"/>
+
+    <label for="reason">Reason</label>
+    <textarea class="form-textarea" id="reason" name="reason  rows="4" cols="50"></textarea>
+    <button class="submitBtn">Submit</button>
+</form>
+</div>
+<%-include("./partials/footer.ejs")   %> 

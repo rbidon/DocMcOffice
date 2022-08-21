@@ -16,17 +16,19 @@
 <form class="form showForm flex justify-center flex-col">
     
     <label for="firstName">First Name</label>
-    <input class="form-input" id="firstName" name="firstName" value="<%=appt.firstName %> " disabled/>
+    <input type ="text" class="form-input" id="firstName" name="firstName" value="<%=appt.firstName %> " disabled/>
     <label for="lastName">Last Name</label>
-    <input class="form-input" id="lastName" name="lastName" value="<%=appt.lastName %> " disabled/>
+    <input type="text" class="form-input" id="lastName" name="lastName" value="<%=appt.lastName %> " disabled/>
     <label for="lastName">Doctor Name</label>
-    <input class="form-input" id="docName" name="docName" value="<%=appt.docName %> " disabled/>
+    <input type="text" class="form-input" id="docName" name="docName" value="<%=appt.docName %> " disabled/>
     <label for="time">Time</label>
-    <input class="form-input" id="time" name="time" value="<%=appt.time %> " disabled/>
+    <input type="time"class="form-input" id="time" name="time" value="<%=appt.time %> " disabled/>
     <label for="date">Date</label>
-    <input class="form-input" id="date" name="date" value="<%=appt.date %> " disabled/>
+    <input type="date" class="form-input" id="date" name="date" value="<%=appt.date %> " disabled/>
     <label for="reason">Reason</label>
-    <textarea class="form-textarea" id="reason" name="reason  rows="4" cols="50"  disabled><%=appt.reason %></textarea>
+    <textarea class="form-textarea" id="reason" name="reason"  rows="4" cols="50" value="<%=appt.reason %>"  disabled>
+        <%=appt.reason %>
+    </textarea>
 </form>
 </div>
 <%-include("./partials/footer.ejs")   %> 
