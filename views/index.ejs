@@ -2,7 +2,7 @@
 <h1 class="text-2xl text-center"> Welcome to Doc McOffice</h1>
 <div class="container">
 <button class="container createBtn">
-    <a href="#" class="">Create Appointment</a>
+    <a href="#" class="rounded-full bg-sky-500 p-2 bg-emerald-500">Create Appointment</a>
 </button>
 <div class="container tableContainer">
     
@@ -14,7 +14,7 @@
         <th>Doctor</th>
         <th>Time</th>
         <th>Date</th>
-        <!-- <th><label for="firstAppt">First Appointment</label></th> -->
+        <!-- Save this for the Admin section <th><label for="firstAppt">First Appointment</label></th> -->
         <th>Delete</th>
         <th>Edit</th>
       </tr>
@@ -23,7 +23,7 @@
         <%for(let i = 0; i< allAppts.length; i++){  %> 
         <!-- First section -->
         <tr>
-         <td><%=allAppts[i].firstName%> </td>
+         <td><a href="/patient/<%=allAppts[i].id %> "><%=allAppts[i].firstName%></a> </td>
         <!-- First section -->
             <td><%=allAppts[i].lastName%> </td>
         <!-- Doctor Name -->
@@ -45,7 +45,7 @@
         <!-- DELETE BUTTON -->
         <td>
             <form action="#>?_method=DELETE" method="POST">
-            <button class="rounded-full bg-sky-500 bg-red-600 px-4">X</button> 
+            <button class="rounded-full bg-sky-500 bg-red-600 px-4"><i class="fa-solid fa-x"></i></button> 
             </form>
         </td>
 

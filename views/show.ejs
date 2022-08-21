@@ -1,0 +1,32 @@
+<%-include("./partials/header.ejs")  %> 
+<div class="container rounded shadow-md showContainer bg-zinc-200">
+    <h1><%=appt.firstName%> </h1>
+ <div class="buttonContainer">
+<!-- DELETE BUTTON -->
+<form action="#>?_method=DELETE" method="POST">
+    <button class="rounded-full bg-sky-500 bg-red-600 px-4"><!--<i class="fa-solid fa-x"></i>-->Delete</button> 
+    </form>
+
+
+<!-- EDIT FORM/ Button -->
+<form action="#?_method=PUT" method="POST">
+<button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><!--<i class="fa-solid fa-pencil"></i>--> Edit</button>
+</form>
+</div>
+<form class="form showForm flex justify-center flex-col">
+    
+    <label for="firstName">First Name</label>
+    <input class="form-input" id="firstName" name="firstName" value="<%=appt.firstName %> " disabled/>
+    <label for="lastName">Last Name</label>
+    <input class="form-input" id="lastName" name="lastName" value="<%=appt.lastName %> " disabled/>
+    <label for="lastName">Doctor Name</label>
+    <input class="form-input" id="docName" name="docName" value="<%=appt.docName %> " disabled/>
+    <label for="time">Time</label>
+    <input class="form-input" id="time" name="time" value="<%=appt.time %> " disabled/>
+    <label for="date">Date</label>
+    <input class="form-input" id="date" name="date" value="<%=appt.date %> " disabled/>
+    <label for="reason">Reason</label>
+    <textarea class="form-textarea" id="reason" name="reason  rows="4" cols="50"  disabled><%=appt.reason %></textarea>
+</form>
+</div>
+<%-include("./partials/footer.ejs")   %> 
