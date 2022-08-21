@@ -1,0 +1,29 @@
+body{
+    margin: auto;
+}
+table{
+    text-align:center;
+}
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+  }
+  th, td {
+    background-color: #96D4D4;
+    padding: 15px;
+  }
+.nav-items{
+    display: flex;
+    justify-content:flex-end;
+    gap:20px;
+}
+.tableContainer{
+    display: flex;
+    justify-content: center;
+}
+.createBtn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+}

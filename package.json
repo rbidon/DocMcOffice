@@ -1,0 +1,33 @@
+{
+  "name": "Doc McOffice",
+  "version": "1.0.0",
+  "description": "Appointment Tracker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbidon/DocMcOffice.git"
+  },
+  "keywords": [],
+  "author": "Rousse Bidon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rbidon/DocMcOffice/issues"
+  },
+  "homepage": "https://github.com/rbidon/DocMcOffice#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.5.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}

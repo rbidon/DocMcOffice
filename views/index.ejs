@@ -1,0 +1,66 @@
+<%-include("./partials/header.ejs")%>
+<h1 class="text-2xl text-center"> Welcome to Doc McOffice</h1>
+<div class="container">
+<button class="container createBtn">
+    <a href="#" class="">Create Appointment</a>
+</button>
+<div class="container tableContainer">
+    
+<table class="table-auto">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Doctor</th>
+        <th>Time</th>
+        <th>Date</th>
+        <!-- <th><label for="firstAppt">First Appointment</label></th> -->
+        <th>Delete</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+        <%for(let i = 0; i< allAppts.length; i++){  %> 
+        <!-- First section -->
+        <tr>
+         <td><%=allAppts[i].firstName%> </td>
+        <!-- First section -->
+            <td><%=allAppts[i].lastName%> </td>
+        <!-- Doctor Name -->
+
+          <td><%=allAppts[i].docName%></td>
+        <!-- Time Section -->
+
+          <td><%=allAppts[i].time%></td>
+        <!-- Date Section -->
+            <td><%=allAppts[i].date%></td>
+        <!-- First Appt Section -->
+            <!-- <td>
+            <% if(allAppts[i].firstAppt === true) {%> 
+                <input type="checkbox" id="firstAppt" name="firstAppt" checked>
+             <%} else{%>
+                <input type="checkbox" id="firstAppt" name="firstAppt">
+           <%  }%>
+            </td> -->
+        <!-- DELETE BUTTON -->
+        <td>
+            <form action="#>?_method=DELETE" method="POST">
+            <button class="rounded-full bg-sky-500 bg-red-600 px-4">X</button> 
+            </form>
+        </td>
+
+        <!-- EDIT FORM/ Button -->
+        <td>
+        <form action="#?_method=PUT" method="POST">
+        <button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><i class="fa-solid fa-pencil"></i></button>
+        </td>
+    </form>
+        </tr>
+      <%  }%> 
+     
+       
+    </tbody>
+  </table>
+</div>
+</div>
+<%-include("./partials/footer.ejs")%>
