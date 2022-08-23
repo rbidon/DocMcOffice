@@ -74,4 +74,11 @@ router.post("/",(req, res)=>{
         }
     })
 })
+
+// DELETE PAGE FOR SHOW/INDEX PAGE 
+router.delete("/:id", (req, res)=>{
+    Appt.findByIdAndRemove(req.params.id, (err, data)=> {
+		if(err) console.log(err)
+		res.redirect('/patient')})
+})
 module.exports = router

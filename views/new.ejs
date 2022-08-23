@@ -10,26 +10,27 @@
     <input type="text" class="form-input" id="lastName" name="lastName" />
 
     <label for="lastName">Doctor Name</label>
-    <select type="text"class="form-select" id="docName" name="docName">
+    <select class="form-select" id="docName" name="docName">
         <option value="Dr.Rousse Bidon">
-            Rousse Bidon
+           Rousse Bidon
         </option>
         <option value="Dr.Jack Bahari">
-            Jack Bahari
+          Jack Bahari
         </option>
         <option value="Dr. Nancy Muller">
             Nancy Muller
         </option>
     </select>
-
+<!-- Miltary Time 8am to 6pm/18 -->
+<!-- Will display an alert if it over the time -->
     <label  for="time">Time</label>
-    <input type="time"class="form-input" id="time" name="time"/>
+    <input type="time"class="form-input" id="time" name="time"  min="08:00" max="18:00" required>
 
     <label for="date">Date</label>
-    <input type="date"class="form-input" id="date" name="date"/>
+    <input type="date"class="form-input" id="date" name="date" placeholder="mm/dd/yyyy">
 
     <label for="reason">Reason</label>
-    <textarea class="form-textarea" id="reason" name="reason  rows="4" cols="50"></textarea>
+    <textarea type ="text" class="form-textarea" id="reason" name="reason"  rows="4" cols="50"></textarea>
     <button class="submitBtn">Submit</button>
 </form>
 </div>

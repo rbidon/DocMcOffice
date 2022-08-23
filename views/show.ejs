@@ -1,19 +1,29 @@
 <%-include("./partials/header.ejs")  %> 
 <div class="container rounded shadow-md showContainer bg-zinc-200">
-    <h1><%=appt.firstName%> </h1>
+    <h1>Appointment Card</h1>
+    <!-- BUTTON CONTAINER FOR EDIT & DELETE -->
  <div class="buttonContainer">
 <!-- DELETE BUTTON -->
-<form action="#>?_method=DELETE" method="POST">
+<form action="/patient/<%=appt.id%>?_method=DELETE" method="POST">
     <button class="rounded-full bg-sky-500 bg-red-600 px-4"><!--<i class="fa-solid fa-x"></i>-->Delete</button> 
     </form>
-
-
 <!-- EDIT FORM/ Button -->
 <form action="#?_method=PUT" method="POST">
-<button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><!--<i class="fa-solid fa-pencil"></i>--> Edit</button>
+<button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><!-- <i class="fa-solid fa-pencil"></i>--> Edit</button>
 </form>
 </div>
-<form class="form showForm flex justify-center flex-col">
+<!-- CONTAINER FOR APPOINTMENT CARD -->
+<div class="container">
+  <h2> First Name: <%=appt.firstName%></h2>
+  <h2> Last Name: <%=appt.lastName%></h2>
+  <h2> Doctor Name: <%=appt.docName%></h2>
+  <h2> Time: <%=appt.time%></h2>
+  <h2> Date: <%=appt.date%></h2>
+  <h2> Reason: <%=appt.reason%></h2>
+</div>
+
+<!-- FORM TO USE FOR LATER -->
+<!--<form class="form showForm flex justify-center flex-col">
     
     <label for="firstName">First Name</label>
     <input type ="text" class="form-input" id="firstName" name="firstName" value="<%=appt.firstName %> " disabled/>
@@ -29,6 +39,6 @@
     <textarea class="form-textarea" id="reason" name="reason"  rows="4" cols="50" value="<%=appt.reason %>"  disabled>
         <%=appt.reason %>
     </textarea>
-</form>
+</form> -->
 </div>
 <%-include("./partials/footer.ejs")   %> 

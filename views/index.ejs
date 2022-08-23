@@ -1,6 +1,7 @@
 <%-include("./partials/header.ejs")%>
 <h1 class="text-2xl text-center"> Welcome to Doc McOffice</h1>
 <div class="container">
+  <!-- Note that states the hour of options 8 am to 6pm -->
 <button class="container createBtn">
     <a href="/patient/new" class="rounded-full bg-sky-500 p-2 bg-emerald-500">Create Appointment</a>
 </button>
@@ -33,7 +34,7 @@
 
           <td><%=allAppts[i].time%></td>
         <!-- Date Section -->
-            <td><%=allAppts[i].date%></td>
+            <td placeholder="mm/dd/yyyy"><%=allAppts[i].date%></td>
         <!-- First Appt Section -->
             <!-- <td>
             <% if(allAppts[i].firstAppt === true) {%> 
@@ -44,7 +45,7 @@
             </td> -->
         <!-- DELETE BUTTON -->
         <td>
-            <form action="#>?_method=DELETE" method="POST">
+            <form action="/patient/<%=allAppts[i].id  %>?_method=DELETE" method="POST">
             <button class="rounded-full bg-sky-500 bg-red-600 px-4"><i class="fa-solid fa-x"></i></button> 
             </form>
         </td>
