@@ -19,7 +19,7 @@ router.get('/', (req, res) =>{
 //             firstName:"Daphneia",
 //             lastName: "Jackson",
 //             docName:"Rousse Bidon",
-//             time: "11:00am",
+//             time: "08:30",
 //             date: "08/20/2022",
 //             reason: "Annual Physical",
 //             firstAppt: false
@@ -28,7 +28,7 @@ router.get('/', (req, res) =>{
 //             firstName:"Will" ,
 //             lastName:"Smith",
 //             docName:"Jack Bahari",
-//             time: "1:00pm",
+//             time: "11:00",
 //             date: "12/20/2022",
 //             reason: "Been feeling lightheaded, want the doctor to check it out.",
 //             firstAppt: true
@@ -37,7 +37,7 @@ router.get('/', (req, res) =>{
 //             firstName:"Spencer",
 //             lastName: "Reid",
 //             docName:"Nancy Muller",
-//             time: "4:00pm",
+//             time: "18:00",
 //             date: "11/15/2022",
 //             reason: "Feeling sick for a couple of dates would like the doctor to run some tests.",
 //             firstAppt: false
@@ -80,5 +80,23 @@ router.delete("/:id", (req, res)=>{
     Appt.findByIdAndRemove(req.params.id, (err, data)=> {
 		if(err) console.log(err)
 		res.redirect('/patient')})
+})
+
+// EDIT PAGE
+router.get("/:id/edit", (req, res)=>{
+    Appt.findById(req.params.id, (err,editAppt)=>{
+        res.render("edit.ejs", {appt: editAppt})
+    })
+})
+// UPDATE PAGE
+router.put("/:id",(req, res)=>{
+    Appt.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, appt) => {
+        if(err){
+            console.log(err)
+        } else{
+             res.redirect(`/patient`)
+        }
+    })  
+		
 })
 module.exports = router

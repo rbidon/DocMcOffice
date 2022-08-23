@@ -34,7 +34,7 @@
 
           <td><%=allAppts[i].time%></td>
         <!-- Date Section -->
-            <td placeholder="mm/dd/yyyy"><%=allAppts[i].date%></td>
+            <td><%=allAppts[i].date%></td>
         <!-- First Appt Section -->
             <!-- <td>
             <% if(allAppts[i].firstAppt === true) {%> 
@@ -52,8 +52,9 @@
 
         <!-- EDIT FORM/ Button -->
         <td>
-        <form action="#?_method=PUT" method="POST">
+          <a href="/patient/<%=allAppts[i].id%>/edit ">
         <button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><i class="fa-solid fa-pencil"></i></button>
+      </a>
         </td>
     </form>
         </tr>

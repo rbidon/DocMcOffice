@@ -4,20 +4,21 @@
 <form action="/patient" method="POST" class="form showForm flex justify-center flex-col">
     
     <label for="firstName">First Name</label>
-    <input type="text"class="form-input" id="firstName" name="firstName"/>
+    <input type="text"class="form-input" id="firstName" name="firstName" required>
 
     <label for="lastName">Last Name</label>
-    <input type="text" class="form-input" id="lastName" name="lastName" />
+    <input type="text" class="form-input" id="lastName" name="lastName"  required/>
 
     <label for="lastName">Doctor Name</label>
-    <select class="form-select" id="docName" name="docName">
-        <option value="Dr.Rousse Bidon">
+    <select class="form-select" id="docName" name="docName" required>
+        <option>Please select the doctor</option>
+        <option value="Rousse Bidon">
            Rousse Bidon
         </option>
-        <option value="Dr.Jack Bahari">
+        <option value="Jack Bahari">
           Jack Bahari
         </option>
-        <option value="Dr. Nancy Muller">
+        <option value=" Nancy Muller">
             Nancy Muller
         </option>
     </select>
@@ -27,10 +28,10 @@
     <input type="time"class="form-input" id="time" name="time"  min="08:00" max="18:00" required>
 
     <label for="date">Date</label>
-    <input type="date"class="form-input" id="date" name="date" placeholder="mm/dd/yyyy">
+    <input type="date" class="form-input" id="date" name="date" required>
 
     <label for="reason">Reason</label>
-    <textarea type ="text" class="form-textarea" id="reason" name="reason"  rows="4" cols="50"></textarea>
+    <textarea type ="text" class="form-textarea" id="reason" name="reason"  rows="4" cols="50" required></textarea>
     <button class="submitBtn">Submit</button>
 </form>
 </div>

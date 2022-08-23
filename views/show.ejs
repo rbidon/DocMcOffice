@@ -7,38 +7,23 @@
 <form action="/patient/<%=appt.id%>?_method=DELETE" method="POST">
     <button class="rounded-full bg-sky-500 bg-red-600 px-4"><!--<i class="fa-solid fa-x"></i>-->Delete</button> 
     </form>
-<!-- EDIT FORM/ Button -->
-<form action="#?_method=PUT" method="POST">
-<button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><!-- <i class="fa-solid fa-pencil"></i>--> Edit</button>
-</form>
-</div>
+<!-- EDIT Button to redirect to the form -->
+<a href="/patient/<%=appt.id%>/edit ">
+    <button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><!-- <i class="fa-solid fa-pencil"></i>--> Edit</button>
+</a>
+
 <!-- CONTAINER FOR APPOINTMENT CARD -->
 <div class="container">
-  <h2> First Name: <%=appt.firstName%></h2>
-  <h2> Last Name: <%=appt.lastName%></h2>
-  <h2> Doctor Name: <%=appt.docName%></h2>
-  <h2> Time: <%=appt.time%></h2>
-  <h2> Date: <%=appt.date%></h2>
-  <h2> Reason: <%=appt.reason%></h2>
+  <h2> First Name:<%=appt.firstName%></h2>
+  <h2> Last Name:<%=appt.lastName%></h2>
+  <h2> Doctor Name:<%=appt.docName%></h2>
+  <h2> Time:<%=appt.time%></h2>
+  <h2> Date:<%=appt.date%></h2>
+  <h2> Reason:<%=appt.reason%></h2>
 </div>
 
-<!-- FORM TO USE FOR LATER -->
-<!--<form class="form showForm flex justify-center flex-col">
-    
-    <label for="firstName">First Name</label>
-    <input type ="text" class="form-input" id="firstName" name="firstName" value="<%=appt.firstName %> " disabled/>
-    <label for="lastName">Last Name</label>
-    <input type="text" class="form-input" id="lastName" name="lastName" value="<%=appt.lastName %> " disabled/>
-    <label for="lastName">Doctor Name</label>
-    <input type="text" class="form-input" id="docName" name="docName" value="<%=appt.docName %> " disabled/>
-    <label for="time">Time</label>
-    <input type="time"class="form-input" id="time" name="time" value="<%=appt.time %> " disabled/>
-    <label for="date">Date</label>
-    <input type="date" class="form-input" id="date" name="date" value="<%=appt.date %> " disabled/>
-    <label for="reason">Reason</label>
-    <textarea class="form-textarea" id="reason" name="reason"  rows="4" cols="50" value="<%=appt.reason %>"  disabled>
-        <%=appt.reason %>
-    </textarea>
-</form> -->
+
+  
+</div>
 </div>
 <%-include("./partials/footer.ejs")   %> 
