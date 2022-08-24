@@ -48,3 +48,15 @@ input[type=text],select {
     justify-content: flex-end;
     gap:2px;
   }
+  .home:visited{
+    color: rgb(29 78 216);
+  }
+  .create:visited{
+    color: rgb(29 78 216);
+  }
+  .signIn{
+    color: rgb(29 78 216);
+  }
+  .register:active{
+    color: rgb(29 78 216);
+  }

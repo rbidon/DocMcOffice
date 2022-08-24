@@ -31,10 +31,15 @@
 
           <td><%=allAppts[i].docName%></td>
         <!-- Time Section -->
-
           <td><%=allAppts[i].time%></td>
+            <% if(allAppts[i].time > 12){%>
+             let miltaryTime =allAppts[i].time - 12
+              
+                <% } else {} %>
         <!-- Date Section -->
             <td><%=allAppts[i].date%></td>
+               
+            
         <!-- First Appt Section -->
             <!-- <td>
             <% if(allAppts[i].firstAppt === true) {%> 
