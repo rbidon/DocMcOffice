@@ -20,7 +20,7 @@ router.get('/', (req, res) =>{
 //             lastName: "Jackson",
 //             docName:"Rousse Bidon",
 //             time: "08:30",
-//             date: "08/20/2022",
+//             date: "2022-20-08",
 //             reason: "Annual Physical",
 //             firstAppt: false
 //         },
@@ -29,7 +29,7 @@ router.get('/', (req, res) =>{
 //             lastName:"Smith",
 //             docName:"Jack Bahari",
 //             time: "11:00",
-//             date: "12/20/2022",
+//             date: "2022-15-12",
 //             reason: "Been feeling lightheaded, want the doctor to check it out.",
 //             firstAppt: true
 //         },
@@ -38,7 +38,7 @@ router.get('/', (req, res) =>{
 //             lastName: "Reid",
 //             docName:"Nancy Muller",
 //             time: "18:00",
-//             date: "11/15/2022",
+//             date: "2022-11-15",
 //             reason: "Feeling sick for a couple of dates would like the doctor to run some tests.",
 //             firstAppt: false
 //         }
@@ -99,4 +99,11 @@ router.put("/:id",(req, res)=>{
     })  
 		
 })
+
+// SORT DATABASE 
+// router.put("/descendingdates", (req, res)=>{
+//     Appt.find().sort({date:1})
+//          res.redirect(`/patient`)
+    
+// })
 module.exports = router

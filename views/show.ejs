@@ -17,7 +17,13 @@
   <h2> First Name:<%=appt.firstName%></h2>
   <h2> Last Name:<%=appt.lastName%></h2>
   <h2> Doctor Name:<%=appt.docName%></h2>
-  <h2> Time:<%=appt.time%></h2>
+  <!-- <h2> Time:<%=appt.time%></h2> -->
+  <% if(appt.time > "12:00") {%> 
+    <%(`${appt.time} = ${appt.time} - "12:00"`)  %> 
+    <h2> Time: <%=appt.time %> pm</h2>
+  <% } else{ %> 
+    <h2> Time: <%=appt.time%>am </h2>
+    <% } %> 
   <h2> Date:<%=appt.date%></h2>
   <h2> Reason:<%=appt.reason%></h2>
 </div>

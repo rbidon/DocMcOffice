@@ -1,4 +1,9 @@
 <%-include("./partials/header.ejs")%>
+<style>
+  .home{
+    color:#92B4A7;
+  }
+</style>
 <h1 class="text-2xl text-center"> Welcome to Doc McOffice</h1>
 <div class="container">
   <!-- Note that states the hour of options 8 am to 6pm -->
@@ -14,7 +19,23 @@
         <th>Last Name</th>
         <th>Doctor</th>
         <th>Time</th>
-        <th>Date</th>
+        <th>
+           
+           <div class=" flex flex-col content-end items-center  up&downArrow">
+             <button class="flex justify-center">
+              <i class="fa-solid fa-caret-up"></i>
+            </button>
+             Date  
+             <form action="/patient/descendingdates?_method=PUT" method="POST">
+            <button class="flex justify-center"><i class="fa-solid fa-caret-down"></i>
+            </button>
+          </form>
+          </div>
+            
+        </th>
+          
+          
+        
         <!-- Save this for the Admin section <th><label for="firstAppt">First Appointment</label></th> -->
         <th>Delete</th>
         <th>Edit</th>
@@ -31,11 +52,12 @@
 
           <td><%=allAppts[i].docName%></td>
         <!-- Time Section -->
-          <td><%=allAppts[i].time%></td>
-            <% if(allAppts[i].time > 12){%>
-             let miltaryTime =allAppts[i].time - 12
-              
-                <% } else {} %>
+          
+          <% if(allAppts[i].time > "12:00") {%> 
+            <td> <%=allAppts[i].time%> pm</td>
+          <% } else{ %> 
+            <td><%=allAppts[i].time%>am </td>
+            <% } %> 
         <!-- Date Section -->
             <td><%=allAppts[i].date%></td>
                
