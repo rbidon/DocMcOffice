@@ -1,4 +1,4 @@
-<%-include("./partials/header.ejs")  %>
+<%-include("./partials/headerforProfile.ejs")  %>
 <!-- FORM TO USE FOR LATER -->
 <form action="/patient/<%=appt.id%>?_method=PUT" method="POST" method="POST"class="form showForm flex justify-center flex-col">
       
@@ -11,7 +11,7 @@
     <label for="lastName">Doctor Name</label>
     <select class="form-select" id="docName" name="docName" required>
         
-        <option value="<%=appt.docName %>">
+        <option value="<%=appt.docName %>" selected="<%=appt.docName %>">
             <%=appt.docName %>
         </option>
         <option>Please select a doctor</option>

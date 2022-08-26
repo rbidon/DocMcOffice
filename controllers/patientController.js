@@ -3,6 +3,21 @@ const router = express.Router();
 // import the schema model I created to used for CRUD
 const Appt = require('../models/appt.js');
 
+// custom middleware to require authentication on routes
+const authRequired = (req, res, next) => {
+	if(req.session.currentUser){
+		// a user is signed in
+		next()
+		// next is part of express
+		// it does what it says
+		// i.e, go on to the next thing
+	} else {
+		// if there is no user
+		res.send('You must be logged in to do that!')
+		// res.redirect('/user/signin')
+	}
+}
+
 //using router to do CRUD
 // export the router to be set the router name in server.js
 // INDEX PAGE

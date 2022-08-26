@@ -2,6 +2,8 @@ body{
     margin: auto;
     box-sizing: border-box;
     width: 100%;
+    overflow-x: hidden;
+    color:black;
 }
 table{
     text-align:center;
@@ -60,3 +62,7 @@ input[type=text],select {
   .register:hover{
     color: #92B4A7;
   }
+  .signOut:hover{
+    color: #92B4A7;
+  }
+ 

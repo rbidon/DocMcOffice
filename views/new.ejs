@@ -1,5 +1,10 @@
-<%-include("./partials/header.ejs")  %> 
-<div class="container rounded shadow-md showContainer bg-zinc-200">
+<%-include("./partials/headerforProfile.ejs")  %> 
+<style>
+    .create{
+     color:#92B4A7;
+    }
+</style>
+<div class=" rounded shadow-md showContainer bg-zinc-200">
     <h1>New Appointment Card Form</h1>
 <form action="/patient" method="POST" class="form showForm flex justify-center flex-col">
     
@@ -32,7 +37,8 @@
 
     <label for="reason">Reason</label>
     <textarea type ="text" class="form-textarea" id="reason" name="reason"  rows="4" cols="50" required></textarea>
-    <button class="submitBtn">Submit</button>
+    <br>
+    <button class="submitBtn bg-red-600 rounded-full py-2">Submit</button>
 </form>
 </div>
 <%-include("./partials/footer.ejs")   %> 

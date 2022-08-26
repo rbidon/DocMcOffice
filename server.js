@@ -47,10 +47,18 @@ const patientController = require('./controllers/patientController');
 // // goes to router "/patient" as the routes  that are inside the controller directory
 app.use('/patient', patientController);
 
+const userController = require('./controllers/userController.js');
+app.use('/users', userController);
+
 // DEFAULT LOCALHOST:3000/
 // app.get("/", (req, res) => {
 //     const today = new Date();
 //     res.send(`Server is Working properly at ${today}`)
+//Homepage for heroku
+app.use("/", (req, res) => {
+	// redirect to homepage
+	res.render("homepage.ejs")
+})
 // }) --- Working Properly
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`);
