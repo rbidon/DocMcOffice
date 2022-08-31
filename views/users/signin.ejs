@@ -17,22 +17,22 @@
 
 
 </style>
-<h1 class="text-center" >Sign In</h1>
+<h1 class="text-center text-3xl" >Sign In</h1>
 <br>
 <div style="display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
 align-content: center;">
-<div class="signInContainer h-80">
+<div class="signInContainer h-96">
   <form action="/users/signin" method="POST">
     <fieldset>
       <label for="username">Username:</label>
-      <input type="text" name="username">
+      <input class="typefield form-input" type="text" name="username">
     </fieldset>
     <fieldset>
       <label for="password">Password:</label>
-      <input type="password" name="password">
+      <input class="typefield form-input" type="password" name="password">
     </fieldset>
     <br>
     <div style="display: flex;
@@ -40,7 +40,7 @@ align-content: center;">
     align-items: center;
     align-content: center;">
 
-    <input class="rounded-full bg-sky-500" style="padding:15px;" type="submit" value="Sign In">
+    <input class="rounded-full bg-teal-500 text-xl hover:bg-green-50" style="padding:15px;" type="submit" value="Sign In">
   </div>
   </form>
 </div>

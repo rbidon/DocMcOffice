@@ -40,11 +40,11 @@
         <div class="buttonContainer gap-4 ">
           <!-- DELETE BUTTON -->
           <form action="/patient/<%=appt.id%>?_method=DELETE" method="POST">
-              <button class="rounded-full bg-sky-500 bg-red-600 px-4"><!--<i class="fa-solid fa-x"></i>-->Delete</button> 
+              <button class="rounded-full bg-sky-500 bg-red-600 px-4"> Delete <!-- <i class="fa-solid fa-x"></i> --> </button> 
               </form>
           <!-- EDIT Button to redirect to the form -->
           <a href="/patient/<%=appt.id%>/edit ">
-              <button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><!-- <i class="fa-solid fa-pencil"></i>--> Edit</button>
+              <button class="rounded-full bg-sky-500 px-4 bg-emerald-500">Edit<!-- <i class="fa-solid fa-pencil"></i>--> </button>
           </a>
           </div>
           <br>
@@ -67,7 +67,7 @@
    
      <h2> Time:</h2> 
     <% if(appt.time > "12:00") {%> 
-      <%(`${appt.time} = ${appt.time} - "12:00"`)  %> 
+      <!-- <%let total%> = <%=appt.time%>- <%"12:00"%> -->
       <h3><%=appt.time %> pm</h3>
     <% } else{ %> 
       <h3> <%=appt.time%>am </h3>

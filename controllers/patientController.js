@@ -35,7 +35,7 @@ router.get('/', (req, res) =>{
 //             lastName: "Jackson",
 //             docName:"Rousse Bidon",
 //             time: "08:30",
-//             date: "2022-20-08",
+//             date: "2022-08-31",
 //             reason: "Annual Physical",
 //             firstAppt: false
 //         },
@@ -44,7 +44,7 @@ router.get('/', (req, res) =>{
 //             lastName:"Smith",
 //             docName:"Jack Bahari",
 //             time: "11:00",
-//             date: "2022-15-12",
+//             date: "2022-12-15",
 //             reason: "Been feeling lightheaded, want the doctor to check it out.",
 //             firstAppt: true
 //         },
