@@ -8,8 +8,8 @@ const apptSchema = new mongoose.Schema({
     docName: {type: String, required:true},
     time: {type: String, required: true},
     date: {type: String, required: true, },
+    firstAppt: Boolean,
     reason: {type: String, required: true}
-    // firstAppt:{type: Boolean, required: true}
   },
   {timestamp:true}
   )

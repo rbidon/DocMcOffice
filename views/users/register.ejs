@@ -1,14 +1,49 @@
 <%-include("../partials/header.ejs")  %>
-<h1>Register A New User</h1>
-<form action="/users/register" method="POST">
-  <fieldset>
-    <label for="username">Username:</label>
-    <input type="text" class="form-input registerForm" name="username">
-  </fieldset>
-  <fieldset>
-    <label for="password">Password:</label>
-    <input type="password" class="form-input" name="password">
-  </fieldset>
-  <input type="submit" value="Sign Up">
-</form>
+<style>
+
+  .registerContainer{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-content: center;
+    align-items: center;
+    background-color:#92B4A7;
+    border-radius: 10px;
+    width: 36em;
+  }
+    .register{
+      color:#92B4A7;
+    }
+
+
+</style>
+<h1 class="text-center" >Register</h1>
+<br>
+<div style="display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+align-content: center;">
+<div class="registerContainer h-80">
+  <form action="/users/register" method="POST">
+    <fieldset>
+      <label for="username">Username:</label>
+      <input type="text" name="username" class="form-input">
+    </fieldset>
+    <fieldset>
+      <label for="password">Password:</label>
+      <input type="password" name="password" class="form-input">
+    </fieldset>
+    <br>
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;">
+
+    <input class="rounded-full bg-sky-500" style="padding:15px;" type="submit" value="Register" />
+  </div>
+  </form>
+</div>
+</div>
+
 <%-include("../partials/footer.ejs") %>

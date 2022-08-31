@@ -1,14 +1,48 @@
 <%-include("../partials/header.ejs")  %> 
-<h1>Sign In</h1>
-<form action="/users/signin" method="POST">
-  <fieldset>
-    <label for="username">Username:</label>
-    <input type="text" name="username">
-  </fieldset>
-  <fieldset>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-  </fieldset>
-  <input type="submit" value="Sign In">
-</form>
+<style>
+
+  .signInContainer{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-content: center;
+    align-items: center;
+    background-color:#92B4A7;
+    border-radius: 10px;
+    width: 36em;
+  }
+    .signIn{
+      color:#92B4A7;
+    }
+
+
+</style>
+<h1 class="text-center" >Sign In</h1>
+<br>
+<div style="display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+align-content: center;">
+<div class="signInContainer h-80">
+  <form action="/users/signin" method="POST">
+    <fieldset>
+      <label for="username">Username:</label>
+      <input type="text" name="username">
+    </fieldset>
+    <fieldset>
+      <label for="password">Password:</label>
+      <input type="password" name="password">
+    </fieldset>
+    <br>
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;">
+
+    <input class="rounded-full bg-sky-500" style="padding:15px;" type="submit" value="Sign In">
+  </div>
+  </form>
+</div>
+</div>
 <%-include("../partials/footer.ejs")  %> 

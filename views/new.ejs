@@ -3,11 +3,28 @@
     .create{
      color:#92B4A7;
     }
+    .submitBtn{
+        background-color: #92B4A7;
+    }
+    .checkboxHolder{
+    display:flex;
+    justify-content: flex-end;
+    align-content: center;
+}
 </style>
-<div class=" rounded shadow-md showContainer bg-zinc-200">
-    <h1>New Appointment Card Form</h1>
-<form action="/patient" method="POST" class="form showForm flex justify-center flex-col">
+<div class=" rounded shadow-md showContainer">
+    <div class="flex justify-center">
+        <h1 class="text-center text-3xl rounded-full  " style="  background-color: #92B4A7;margin-bottom: 10px;  width:80vw; padding:5px;">New Appointment Card Form</h1>
+    </div>
     
+<form action="/patient" method="POST" class="form showForm flex justify-center flex-col">
+    <div class="checkboxHolder gap-4">
+         <label for="firstAppt"> First Appointment</label>
+        <input type="checkbox" id="firstAppt" name="firstAppt" class="form-checkbox">
+    </div>
+   
+   
+     <br>
     <label for="firstName">First Name</label>
     <input type="text"class="form-input" id="firstName" name="firstName" required>
 
@@ -16,9 +33,9 @@
 
     <label for="lastName">Doctor Name</label>
     <select class="form-select" id="docName" name="docName" required>
-        <option>Please select the doctor</option>
-        <option value="Rousse Bidon">
-           Rousse Bidon
+        <option >Please select the doctor</option>
+        <option value="Jordan Smith">
+           Jordan Smith
         </option>
         <option value="Jack Bahari">
           Jack Bahari
@@ -34,11 +51,16 @@
 
     <label for="date">Date</label>
     <input type="date" class="form-input" id="date" name="date" required>
+    
+    <br>
+   
 
     <label for="reason">Reason</label>
+   
     <textarea type ="text" class="form-textarea" id="reason" name="reason"  rows="4" cols="50" required></textarea>
     <br>
-    <button class="submitBtn bg-red-600 rounded-full py-2">Submit</button>
+    
+        <button class="submitBtn rounded-full py-2 text-xl" style="padding:5px;">Submit</button>
 </form>
 </div>
 <%-include("./partials/footer.ejs")   %> 

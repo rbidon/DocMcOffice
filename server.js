@@ -42,11 +42,21 @@ app.use(express.urlencoded({extended: true}));
 // makes it possible to use DELETE and PUT requests in methods
 app.use(methodOverride('_method'));
 
+app.use((req, res, next) => {
+	res.locals.currentUser = req.session.currentUser
+
+	// if (req.session.currentUser) {
+	//   res.locals.authenticated = true
+  //}
+	next()
+})
+
 // import the controller that store the CRUD in the controllers 
 const patientController = require('./controllers/patientController');
 // // goes to router "/patient" as the routes  that are inside the controller directory
 app.use('/patient', patientController);
 
+//import users routes
 const userController = require('./controllers/userController.js');
 app.use('/users', userController);
 
@@ -54,7 +64,7 @@ app.use('/users', userController);
 // app.get("/", (req, res) => {
 //     const today = new Date();
 //     res.send(`Server is Working properly at ${today}`)
-//Homepage for heroku
+//Homepage for heroku that will link to the other pages
 app.use("/", (req, res) => {
 	// redirect to homepage
 	res.render("homepage.ejs")

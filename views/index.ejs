@@ -3,13 +3,82 @@
   .home{
     color:#92B4A7;
   }
+  .noteToSelf {
+    background-color: rgb(253 230 138);
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    /* width: 100%; */
+    border: 2px solid rgb(227, 227, 227);
+    border-radius: 4px;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    max-width: 32vw;
+    font-weight:bold;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .noteToSelf:hover {
+    background-color: rgb(252 211 77);
+  }
+  .notes {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: rgb(253 230 138);
+    max-width: 32vw;
+  }
+  .submitNote{
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: rgb(212, 87, 34);
+    max-width: 32vw;
+    border-radius: 5px;
+  }
+  .editNote{
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: rgb(132 204 22);
+    max-width: 32vw;
+    border-radius: 5px;
+  }
+  .submitNoteContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap:11px;
+  }
+  .noteHolder{
+    max-width: 32vw;
+  }
 </style>
-<h1 class="text-2xl text-center"> Welcome to Doc McOffice</h1>
-<div class="#">
+
+<h1 class="text-4xl text-center"> Welcome to Doc McOffice</h1>
+<div class="noteHolder"> 
   <!-- Note that states the hour of options 8 am to 6pm -->
-<button class="container createBtn">
+  <button class="noteToSelf">Note to Self</button>
+  <div  id="notes" class="notes" contenteditable="true">
+    <p>Hour of Operation:
+      <span style="color:red; font-weight:bold;"> 8 am to 6 pm</span>
+    </p>
+    <h3 style="text-decoration:underline;">Doctor Schedule:</h3>
+    <ol>
+      <li>Dr. Smith: Available</li>
+       <li>Dr. Bahari: Avaliable</li>
+    </ol>
+</div>
+<div class="submitNoteContainer">
+  <!-- <button class="editNote">Edit</button> -->
+  <button class="submitNote">Submit</button>
+</div>
+ </div>
+<button class="container createBtn ">
     <a href="/patient/new" class="rounded-full bg-sky-500 p-2 bg-emerald-500">Create Appointment</a>
 </button>
+<br>
 <div class=" tableContainer">
     
 <table class="table-auto">
@@ -22,9 +91,12 @@
         <th>
            
            <div class=" flex flex-col content-end items-center  up&downArrow">
-             <button class="flex justify-center">
+            <form action="/patient/ascendingdates?_method=PUT" method="POST">
+               <button class="flex justify-center">
               <i class="fa-solid fa-caret-up"></i>
             </button>
+            </form>
+            
              Date  
              <form action="/patient/descendingdates?_method=PUT" method="POST">
             <button class="flex justify-center"><i class="fa-solid fa-caret-down"></i>
@@ -36,7 +108,10 @@
           
           
         
-        <!-- Save this for the Admin section <th><label for="firstAppt">First Appointment</label></th> -->
+        <!-- Save this for the Admin section -->
+        <th>
+          <label for="firstAppt">First Appointment</label>
+        </th>
         <th>Delete</th>
         <th>Edit</th>
       </tr>
@@ -63,13 +138,14 @@
                
             
         <!-- First Appt Section -->
-            <!-- <td>
-            <% if(allAppts[i].firstAppt === true) {%> 
-                <input type="checkbox" id="firstAppt" name="firstAppt" checked>
-             <%} else{%>
-                <input type="checkbox" id="firstAppt" name="firstAppt">
-           <%  }%>
-            </td> -->
+             <td>
+              <input type="checkbox" name="firstAppt" id="firstAppt" value="<%=allAppts[i].firstAppt%> "
+              <% if(allAppts[i].firstAppt === true) { %>
+                  checked
+              <% } %>
+              disabled/> 
+        
+            </td> 
         <!-- DELETE BUTTON -->
         <td>
             <form action="/patient/<%=allAppts[i].id  %>?_method=DELETE" method="POST">
@@ -92,4 +168,45 @@
   </table>
 </div>
 </div>
+<script>
+  let noteToSelf = document.querySelector(".noteToSelf");
+  let submitNote = document.querySelector(".submitNote");
+  let editNote = document.querySelector(".editNote");
+  let content = document.querySelector('.content');
+  let notes=document.querySelector('#notes');
+noteToSelf.addEventListener("click", () => { 
+    
+        let notes = noteToSelf.nextElementSibling;
+        noteToSelf.classList.toggle("active");
+        submitNote.classList.toggle("active");
+        if (noteToSelf.classList.contains("active")) {
+          notes.style.display = "flex";
+          notes.style.flexDirection = "column";
+          notes.style.justifyContent = "flex-start";
+          submitNote.style.display = "flex"
+          // editNote.style.display = "flex"
+        } else {
+          notes.style.display = "none";
+          submitNote.style.display = "none"
+          // editNote.style.display = "none"
+        }
+});
+document.querySelector("#notes").addEventListener("click", ()=>{
+  document.querySelector("#notes").setAttribute("contenteditable", true);
+})
+
+window.onload = () => {
+	if(localStorage.getItem('notes')) {
+		document.querySelector('#notes').innerHTML = localStorage.getItem('notes');
+  }
+}
+// editNote.addEventListener("click",()=>{
+//  document.querySelector("#notes").setAttribute("contenteditable", true);
+// })
+submitNote.addEventListener("click", ()=>{
+  document.querySelector("#notes").setAttribute("contenteditable", false);
+  localStorage.setItem('notes', notes.innerHTML);
+})
+
+</script>
 <%-include("./partials/footer.ejs")%>

@@ -1,35 +1,87 @@
 <%-include("./partials/headerforProfile.ejs")  %> 
-<div class="container rounded shadow-md showContainer bg-zinc-200">
-    <h1>Appointment Card</h1>
-    <!-- BUTTON CONTAINER FOR EDIT & DELETE -->
- <div class="buttonContainer">
-<!-- DELETE BUTTON -->
-<form action="/patient/<%=appt.id%>?_method=DELETE" method="POST">
-    <button class="rounded-full bg-sky-500 bg-red-600 px-4"><!--<i class="fa-solid fa-x"></i>-->Delete</button> 
-    </form>
-<!-- EDIT Button to redirect to the form -->
-<a href="/patient/<%=appt.id%>/edit ">
-    <button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><!-- <i class="fa-solid fa-pencil"></i>--> Edit</button>
-</a>
-
-<!-- CONTAINER FOR APPOINTMENT CARD -->
-<div class="container">
-  <h2> First Name:<%=appt.firstName%></h2>
-  <h2> Last Name:<%=appt.lastName%></h2>
-  <h2> Doctor Name:<%=appt.docName%></h2>
-  <!-- <h2> Time:<%=appt.time%></h2> -->
-  <% if(appt.time > "12:00") {%> 
-    <%(`${appt.time} = ${appt.time} - "12:00"`)  %> 
-    <h2> Time: <%=appt.time %> pm</h2>
-  <% } else{ %> 
-    <h2> Time: <%=appt.time%>am </h2>
-    <% } %> 
-  <h2> Date:<%=appt.date%></h2>
-  <h2> Reason:<%=appt.reason%></h2>
+<style>
+  .showHolder{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  h3{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  h3{
+    background-color: white;
+  }
+  .checkboxHolder{
+    display:flex;
+    justify-content: flex-end;
+    align-content: center;
+}
+</style>
+<div class="flex justify-center">
+  <h1 class="text-center text-3xl rounded-full" style="  background-color: #92B4A7; padding:5px;margin-bottom: 10px; width:80vw;"> Appointment Card </h1>
 </div>
+<div class=" rounded shadow-md showContainer ">
+   
+<!-- CONTAINER FOR APPOINTMENT CARD -->
+<div class="flex justify-center flex-col bg-zinc-200">
+  
+  <div class="showHolder">
+        <!-- BUTTON CONTAINER FOR EDIT & DELETE -->
+        <div class="buttonContainer gap-4 ">
+          <!-- DELETE BUTTON -->
+          <form action="/patient/<%=appt.id%>?_method=DELETE" method="POST">
+              <button class="rounded-full bg-sky-500 bg-red-600 px-4"><!--<i class="fa-solid fa-x"></i>-->Delete</button> 
+              </form>
+          <!-- EDIT Button to redirect to the form -->
+          <a href="/patient/<%=appt.id%>/edit ">
+              <button class="rounded-full bg-sky-500 px-4 bg-emerald-500"><!-- <i class="fa-solid fa-pencil"></i>--> Edit</button>
+          </a>
+          </div>
+          <br>
+          <div class="checkboxHolder gap-4 ">
+            <h2 class="text-md">First Appointment:</h2> 
+            <input class=""  style="margin-top: 4px;"type="checkbox" id="firstAppt" name="firstAppt" value="true"
+            <% if(appt.firstAppt === true) {%>  
+              checked
+                
+                  
+               <%}%>
+              disabled/>
+            </div>
+    <h2> First Name:</h2>
+      <h3><%=appt.firstName%></h3>
+    <h2> Last Name:</h2>
+      <h3><%=appt.lastName%></h3>
+    <h2> Doctor Name:</h2>
+      <h3><%=appt.docName%></h3>
+   
+     <h2> Time:</h2> 
+    <% if(appt.time > "12:00") {%> 
+      <%(`${appt.time} = ${appt.time} - "12:00"`)  %> 
+      <h3><%=appt.time %> pm</h3>
+    <% } else{ %> 
+      <h3> <%=appt.time%>am </h3>
+      <% } %> 
+    <h2> Date: </h2>
+      <h3><%=appt.date%></h3>
+    <h2> Reason:</h2>
+      <h3><%=appt.reason%></h3>
+  </div>
+ 
 
 
   
 </div>
+
 </div>
 <%-include("./partials/footer.ejs")   %> 

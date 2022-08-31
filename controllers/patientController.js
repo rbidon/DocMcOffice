@@ -80,6 +80,11 @@ router.get("/:id",(req, res)=>{
 
 // CREATE PAGE FOR NEW/ EDIT/ DELETE OPTIONS
 router.post("/",(req, res)=>{
+    if(req.body.firstAppt === 'on') {
+		req.body.firstAppt = true
+	} else {
+		req.body.firstAppt = false
+	}
     Appt.create(req.body,(error,createAppt) =>{
         if(error){
             console.log('error', error);
@@ -99,12 +104,24 @@ router.delete("/:id", (req, res)=>{
 
 // EDIT PAGE
 router.get("/:id/edit", (req, res)=>{
+    if(req.body.firstAppt === 'on') {
+		req.body.firstAppt = true
+	} else {
+		req.body.firstAppt = false
+	}
     Appt.findById(req.params.id, (err,editAppt)=>{
         res.render("edit.ejs", {appt: editAppt})
     })
 })
 // UPDATE PAGE
 router.put("/:id",(req, res)=>{
+    
+    if(req.body.firstAppt === 'on') {
+		req.body.firstAppt = true
+	} else {
+		req.body.firstAppt = false
+	}
+    console.log(req.body)
     Appt.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, appt) => {
         if(err){
             console.log(err)
@@ -115,9 +132,16 @@ router.put("/:id",(req, res)=>{
 		
 })
 
-// SORT DATABASE 
+//SORT DATABASE 
 // router.put("/descendingdates", (req, res)=>{
-//     Appt.find().sort({date:1})
+//     Appt.sort({date:-1})
+//     console.log( Appt.sort({date:-1}))
+//          res.render(`${Appt.date}`)
+//     console.log(req.body, req.params.id)
+// })
+
+// router.put("/:id/ascendingdates", (req, res)=>{
+//     Appt.find(req.params.id, req.body).sort({date:1})
 //          res.redirect(`/patient`)
     
 // })
